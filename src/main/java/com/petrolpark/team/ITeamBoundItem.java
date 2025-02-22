@@ -3,8 +3,8 @@ package com.petrolpark.team;
 import java.util.List;
 
 import com.petrolpark.team.packet.BindTeamItemPacket;
+import com.petrolpark.util.ScreenHelper;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -25,7 +25,7 @@ public interface ITeamBoundItem<I extends Item> {
     public Component getTeamSelectionScreenTitle(Level level, Player player, ItemStack stack);
 
     public default InteractionResult trySelectTeam(ItemStack stack, Player player, Level level) {
-        if (getTeam(stack, level) != NoTeam.INSTANCE && !isTeamRebindable(level, player, stack)) return InteractionResult.PASS;
+        if (!getTeam(stack, level).isNone() && !isTeamRebindable(level, player, stack)) return InteractionResult.PASS;
         GatherTeamsEvent event = new GatherTeamsEvent(player);
         MinecraftForge.EVENT_BUS.post(event);
         if (event.getTeamsUnmodifiable().size() == 1) {
@@ -37,8 +37,7 @@ public interface ITeamBoundItem<I extends Item> {
     };
 
     public static void openScreen(Component title, List<ITeam<?>> teams) {
-        Minecraft mc = Minecraft.getInstance();
-        mc.setScreen(new SelectTeamScreen(title, teams, BindTeamItemPacket::new));
+        ScreenHelper.openScreen(new SelectTeamScreen(title, teams, BindTeamItemPacket::new));
     };
 
     public static ITeam<?> getTeam(ItemStack stack, Level level) {

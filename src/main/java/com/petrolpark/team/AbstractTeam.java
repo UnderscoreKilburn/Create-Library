@@ -22,6 +22,11 @@ public abstract class AbstractTeam<T extends ITeam<? super T>> implements ITeam<
     protected final Map<ITeamDataType<?>, Object> data = new HashMap<>();
 
     @Override
+    public final boolean isNone() {
+        return false;
+    };
+
+    @Override
     @SuppressWarnings("unchecked")
     public <DATA> DATA getTeamData(ITeamDataType<? super DATA> dataType) {
         return (DATA)data.computeIfAbsent(dataType, ITeamDataType::getBlankInstance);

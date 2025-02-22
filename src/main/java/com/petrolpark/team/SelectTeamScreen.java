@@ -14,12 +14,13 @@ public class SelectTeamScreen extends Screen {
 
     protected final List<ITeam<?>> selectableTeams;
 
-    protected ITeam<?> selectedTeam;
+    protected ITeam<?> selectedTeam = null;
 
     public SelectTeamScreen(Component title, List<ITeam<?>> selectableTeams, BindTeamPacket.Factory packetFactory) {
         super(title);
         this.selectableTeams = selectableTeams;
         this.packetFactory = packetFactory;
+        if (!selectableTeams.isEmpty()) selectedTeam = selectableTeams.get(0);
     };
 
     @SuppressWarnings("unchecked")
@@ -27,10 +28,14 @@ public class SelectTeamScreen extends Screen {
         return (T)selectedTeam;
     };
 
+    public void sendTeamSelection() {
+        if (getSelectedTeam() != null) PetrolparkMessages.sendToServer(packetFactory.create(getSelectedTeam()));
+    };
+
     @Override
     public void onClose() {
         super.onClose();
-        PetrolparkMessages.sendToServer(packetFactory.create(getSelectedTeam()));
+        sendTeamSelection();
     };
     
 };

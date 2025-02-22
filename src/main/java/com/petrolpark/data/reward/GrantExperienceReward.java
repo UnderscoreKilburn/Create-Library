@@ -35,8 +35,7 @@ public class GrantExperienceReward extends ContextEntityReward {
 
     @Override
     public Component getName() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getName'");
+        return Component.translatable("reward.petrolpark.xp");
     };
 
     @Override

@@ -22,6 +22,7 @@ public interface IReward extends LootContextUser {
     @OnlyIn(Dist.CLIENT)
     public void render(GuiGraphics graphics);
 
+    @OnlyIn(Dist.CLIENT)
     public Component getName();
     
     public RewardType getType();

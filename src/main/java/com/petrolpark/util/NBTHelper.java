@@ -85,7 +85,7 @@ public class NBTHelper {
      * @param tag
      * @param key
      * @param registryKey
-     * @param registryAccess
+     * @param level
      * @return {@code null} if the ResourceLocation is invalid
      */
     public static <OBJECT> OBJECT readRegistryObject(CompoundTag tag, String key, ResourceKey<Registry<OBJECT>> registryKey, Level level) {
@@ -98,7 +98,7 @@ public class NBTHelper {
      * @param tag
      * @param key
      * @param registryKey
-     * @param registryAccess
+     * @param level
      * @param object
      */
     public static <OBJECT> void writeRegistryObject(CompoundTag tag, String key, ResourceKey<Registry<OBJECT>> registryKey, Level level, OBJECT object) {

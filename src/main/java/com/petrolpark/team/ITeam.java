@@ -2,11 +2,15 @@ package com.petrolpark.team;
 
 import java.util.stream.Stream;
 
+import javax.annotation.Nonnull;
+
 import com.petrolpark.Petrolpark;
 import com.petrolpark.PetrolparkRegistries;
 import com.petrolpark.team.data.ITeamDataType;
+import com.petrolpark.util.Lang;
 import com.petrolpark.util.NBTHelper;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -35,6 +39,10 @@ public interface ITeam<T extends ITeam<? super T>> {
 
     public ITeamType<T> getType();
 
+    public default boolean isNone() {
+        return getType() == TeamTypes.NONE;
+    };
+
     public boolean isMember(Player player);
     
     public Stream<String> streamMemberUsernames(Level level);
@@ -48,12 +56,30 @@ public interface ITeam<T extends ITeam<? super T>> {
 
     public Component getName(Level level);
 
+    /**
+     * Returns the Team Data associated with the given {@link ITeamDataType}.
+     * Implementations must not return {@code null} for missing Data, but a {@link ITeamDataType#getBlankInstance() blank instance}.
+     * @param <DATA> Class of the Team Data
+     * @param dataType
+     * @return Non-{@code null} instance of the Team Data
+     */
+    @Nonnull
     public <DATA> DATA getTeamData(ITeamDataType<? super DATA> dataType);
 
     public void setChanged(Level level, ITeamDataType<?> dataType);
 
+    /**
+     * Render an icon for this {@link ITeam}. The icon should occupy {@code (0, 0) -> (16, 16)} of the given PoseStack.
+     * @param graphics
+     */
     @OnlyIn(Dist.CLIENT)
     public void renderIcon(GuiGraphics graphics);
+
+    @OnlyIn(Dist.CLIENT)
+    public default Component getRenderedMemberList(int maxTextWidth) {
+        Minecraft mc = Minecraft.getInstance();
+        return Lang.shortList(streamMemberUsernames(mc.level).map(Component::literal).toList(), maxTextWidth, mc.font);
+    };
 
     public static interface ITeamType<T extends ITeam<? super T>> {
 

@@ -102,7 +102,7 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
-    maven { // Create, Flywheel and Registrate
+    maven { // Create, Flywheel, Registrate, Jade
         name = 'tterag maven'
         url = 'https://www.cursemaven.com'
     }
@@ -172,6 +172,9 @@ dependencies {
     // Curios
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}")
+
+    // Jade
+    implementation fg.deobf("curse.maven:jade-324717:${jade_id}")
     
     // ANNOTATION PROCESSORS
 

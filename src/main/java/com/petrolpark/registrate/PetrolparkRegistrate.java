@@ -97,7 +97,7 @@ public class PetrolparkRegistrate extends AbstractRegistrate<PetrolparkRegistrat
         return simple(name, PetrolparkRegistries.Keys.REWARD_TYPE, () -> new RewardType(serializer));
     };
 
-    public RegistryEntry<ITeamDataType<?>> teamDataType(String name, NonNullSupplier<ITeamDataType<?>> supplier) {
+    public <DATA> RegistryEntry<ITeamDataType<DATA>> teamDataType(String name, NonNullSupplier<ITeamDataType<DATA>> supplier) {
         return generic(name, PetrolparkRegistries.Keys.TEAM_DATA_TYPE, supplier).register();
     };
     

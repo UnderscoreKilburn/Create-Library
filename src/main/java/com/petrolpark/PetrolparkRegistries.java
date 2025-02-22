@@ -18,8 +18,10 @@ import com.petrolpark.shop.offer.ShopOfferGenerator;
 import com.petrolpark.team.ITeam.ITeamType;
 import com.petrolpark.team.data.ITeamDataType;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraftforge.registries.RegistryBuilder;
 import net.minecraftforge.registries.RegistryManager;
@@ -32,7 +34,7 @@ public class PetrolparkRegistries {
     };
 
     public static <OBJECT> Registry<OBJECT> getDataRegistry(ResourceKey<Registry<OBJECT>> key) {
-        return ServerLifecycleHooks.getCurrentServer().registryAccess().registryOrThrow(key);
+        return DistExecutor.unsafeRunForDist(() -> () -> Minecraft.getInstance().getConnection().registryAccess(), () -> () -> ServerLifecycleHooks.getCurrentServer().registryAccess()).registryOrThrow(key);
     };
     
     public static class Keys {
@@ -46,7 +48,7 @@ public class PetrolparkRegistries {
         public static final ResourceKey<Registry<LootItemStackNumberProviderType>> LOOT_ITEM_STACK_NUMBER_PROVIDER_TYPE = REGISTRATE.makeRegistry("loot_item_stack_number_provider_type", RegistryBuilder::new);
         public static final ResourceKey<Registry<LootEntityNumberProviderType>> LOOT_ENTITY_NUMBER_PROVIDER_TYPE = REGISTRATE.makeRegistry("loot_entity_number_provider_type", RegistryBuilder::new);
         public static final ResourceKey<Registry<LootTeamNumberProviderType>> LOOT_TEAM_NUMBER_PROVIDER_TYPE = REGISTRATE.makeRegistry("loot_team_number_provider_type", RegistryBuilder::new);
-        // Generated ngredients
+        // Generated ingredients
         public static final ResourceKey<Registry<IngredientRandomizerType>> INGREDIENT_RANDOMIZER_TYPE = REGISTRATE.makeRegistry("ingredient_randomizer_type", RegistryBuilder::new);
         public static final ResourceKey<Registry<IngredientModifierType>> INGREDIENT_MODIFIER_TYPE = REGISTRATE.makeRegistry("ingredient_modifier_type", RegistryBuilder::new);
         // Rewards

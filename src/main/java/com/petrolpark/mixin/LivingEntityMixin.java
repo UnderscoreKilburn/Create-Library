@@ -32,7 +32,7 @@ public abstract class LivingEntityMixin extends Entity {
         cancellable = true
     )
     public void inSetLastHurtByMob(LivingEntity livingEntity, CallbackInfo ci) {
-        if (hasEffect(PetrolparkMobEffects.NUMBNESS.get())) ci.cancel();
+        if (livingEntity != null && hasEffect(PetrolparkMobEffects.NUMBNESS.get())) ci.cancel();
     };
 
     @Inject(

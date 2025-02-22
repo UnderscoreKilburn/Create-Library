@@ -72,6 +72,11 @@ public class SinglePlayerTeam extends AbstractTeam<SinglePlayerTeam> implements 
         PlayerFaceRenderer.draw(graphics, mc.getSkinManager().getInsecureSkinLocation(player.getGameProfile()), 0, 0, 16);
     };
 
+    @Override
+    public Component getRenderedMemberList(int maxTextWidth) {
+        return player.getDisplayName();
+    };
+
     // CAPABILITY
 
     @Override

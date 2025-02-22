@@ -9,12 +9,13 @@ import com.petrolpark.team.data.ITeamDataType;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 
-public class ShopsTeamData extends HashMap<Shop, ShopsTeamData.Entry> {
+public class TeamShopsData extends HashMap<Shop, TeamShopsData.TeamShop> {
 
-    public Entry getOrCreate(Shop shop) {
+    public TeamShop getOrCreate(Shop shop) {
         return computeIfAbsent(shop, s -> defaultEntry());
     };
 
@@ -22,53 +23,59 @@ public class ShopsTeamData extends HashMap<Shop, ShopsTeamData.Entry> {
         getOrCreate(shop).xp += amount;
     };
 
-    protected Entry defaultEntry() {
-        return new Entry("", 0);
+    public Component getName(Shop shop) {
+        String customName = getOrCreate(shop).customName;
+        if (customName.isEmpty()) return shop.getName();
+        return Component.literal(customName);
     };
 
-    protected class Entry {
+    protected TeamShop defaultEntry() {
+        return new TeamShop("", 0);
+    };
+
+    protected class TeamShop {
         public int xp;
         public String customName;
 
-        public Entry(String customName, int xp) {
+        public TeamShop(String customName, int xp) {
             this.customName = customName;
             this.xp = xp;
         };
     };
     
-    public static class Type implements ITeamDataType<ShopsTeamData> {
+    public static class Type implements ITeamDataType<TeamShopsData> {
 
         @Override
-        public ShopsTeamData getBlankInstance() {
-            return new ShopsTeamData();
+        public TeamShopsData getBlankInstance() {
+            return new TeamShopsData();
         };
 
         @Override
-        public boolean isBlank(ShopsTeamData data) {
+        public boolean isBlank(TeamShopsData data) {
             return data.isEmpty();
         };
 
         @Override
-        public ShopsTeamData load(Level level, CompoundTag tag) {
+        public TeamShopsData load(Level level, CompoundTag tag) {
             Registry<Shop> registry = level.registryAccess().registryOrThrow(PetrolparkRegistries.Keys.SHOP);
-            ShopsTeamData data = getBlankInstance();
+            TeamShopsData data = getBlankInstance();
             for (String key : tag.getAllKeys()) {
                 Shop shop = registry.get(new ResourceLocation(key));
                 if (shop != null && tag.contains(key, Tag.TAG_COMPOUND)) {
                     CompoundTag shopTag = tag.getCompound(key);
                     String customName = shopTag.getString("Name");
                     int xp = shopTag.getInt("XP");
-                    if (xp != 0 && !customName.isEmpty()) data.put(shop, data.new Entry(customName, xp));
+                    if (xp != 0 && !customName.isEmpty()) data.put(shop, data.new TeamShop(customName, xp));
                 };
             };
             return data;
         };
 
         @Override
-        public CompoundTag save(Level level, ShopsTeamData data) {
+        public CompoundTag save(Level level, TeamShopsData data) {
             Registry<Shop> registry = level.registryAccess().registryOrThrow(PetrolparkRegistries.Keys.SHOP);
             CompoundTag tag = new CompoundTag();
-            for (Map.Entry<Shop, Entry> entry : data.entrySet()) {
+            for (Map.Entry<Shop, TeamShop> entry : data.entrySet()) {
                 CompoundTag shopTag = new CompoundTag();
                 if (!entry.getValue().customName.isEmpty()) shopTag.putString("Name", entry.getValue().customName);
                 if (entry.getValue().xp != 0) shopTag.putInt("XP", entry.getValue().xp);

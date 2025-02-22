@@ -11,6 +11,7 @@ import com.google.gson.JsonSerializationContext;
 import com.petrolpark.Petrolpark;
 import com.petrolpark.data.IEntityTarget;
 
+import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -47,8 +48,7 @@ public class GiveLootReward extends AbstractGiveEntityItemsReward {
 
     @Override
     public Component getName() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getName'");
+        return Component.translatable(Util.makeDescriptionId("loot", lootTableRL));
     };
 
     @Override
