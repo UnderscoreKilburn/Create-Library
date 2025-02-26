@@ -1,4 +1,4 @@
-package com.petrolpark.advancement;
+package com.petrolpark.data.advancement;
 
 import java.util.HashSet;
 import java.util.Map;

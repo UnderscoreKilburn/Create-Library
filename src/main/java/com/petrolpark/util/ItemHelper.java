@@ -1,14 +1,20 @@
 package com.petrolpark.util;
 
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.npc.InventoryCarrier;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class ItemHelper {
 
@@ -39,5 +45,15 @@ public class ItemHelper {
             if (test.test(inv.getStackInSlot(slot))) removed += inv.extractItem(slot, maxCount - removed, false).getCount();
         };
         return removed;
+    };
+
+    public static void give(Entity entity, Stream<ItemStack> stacks) {
+        if (entity instanceof InventoryCarrier hasInv) {
+            stacks.forEach(stack -> entity.spawnAtLocation(ItemHandlerHelper.insertItemStacked(new InvWrapper(hasInv.getInventory()), stack, false)));
+        } else if (entity instanceof Player player) {
+            stacks.forEach(player.getInventory()::placeItemBackInInventory);
+        } else {
+            stacks.forEach(entity::spawnAtLocation);
+        };
     };
 };

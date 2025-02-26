@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import com.petrolpark.PetrolparkConfig;
 import com.petrolpark.contamination.IContamination;
 import com.petrolpark.contamination.ItemContamination;
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
 
 import net.minecraft.world.item.ItemStack;

@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
 import com.petrolpark.badge.BadgeDuplicationRecipe;
-import com.petrolpark.itemdecay.recipe.DecayingItemCookingRecipeSerializer;
+import com.petrolpark.item.decay.recipe.DecayingItemCookingRecipeSerializer;
 import com.petrolpark.recipe.IPetrolparkRecipeTypes;
 import com.petrolpark.recipe.contamination.CombineContaminatedItemsRecipe;
 import com.petrolpark.recipe.manualonly.ManualOnlyShapedRecipe;

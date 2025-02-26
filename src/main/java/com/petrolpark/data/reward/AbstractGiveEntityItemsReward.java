@@ -1,17 +1,14 @@
 package com.petrolpark.data.reward;
 
-import java.util.stream.Stream;
 import java.util.function.UnaryOperator;
+import java.util.stream.Stream;
 
 import com.petrolpark.data.IEntityTarget;
+import com.petrolpark.util.ItemHelper;
 
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.InventoryCarrier;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public abstract class AbstractGiveEntityItemsReward extends ContextEntityReward {
 
@@ -23,13 +20,7 @@ public abstract class AbstractGiveEntityItemsReward extends ContextEntityReward 
 
     @Override
     public final void reward(Entity entity, LootContext context, float multiplier) {
-        if (entity instanceof InventoryCarrier hasInv) {
-            streamStacks(entity, context).map(multiplyAmount(multiplier)).forEach(stack -> entity.spawnAtLocation(ItemHandlerHelper.insertItemStacked(new InvWrapper(hasInv.getInventory()), stack, false)));
-        } else if (entity instanceof Player player) {
-            streamStacks(entity, context).map(multiplyAmount(multiplier)).forEach(player.getInventory()::placeItemBackInInventory);
-        } else {
-            streamStacks(entity, context).map(multiplyAmount(multiplier)).forEach(entity::spawnAtLocation);
-        };
+        ItemHelper.give(entity, streamStacks(entity, context).map(multiplyAmount(multiplier)));
     };
 
     private UnaryOperator<ItemStack> multiplyAmount(float multiplier) {

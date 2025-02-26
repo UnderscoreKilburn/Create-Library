@@ -1,7 +1,7 @@
-package com.petrolpark.itemdecay.recipe;
+package com.petrolpark.item.decay.recipe;
 
 import com.petrolpark.Petrolpark;
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.Container;

@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import com.petrolpark.PetrolparkConfig;
 import com.petrolpark.contamination.ItemContamination;
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerLevelAccess;

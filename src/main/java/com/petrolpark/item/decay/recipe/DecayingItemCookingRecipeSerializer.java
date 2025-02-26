@@ -1,4 +1,4 @@
-package com.petrolpark.itemdecay.recipe;
+package com.petrolpark.item.decay.recipe;
 
 import java.util.Optional;
 
@@ -6,9 +6,9 @@ import javax.annotation.Nullable;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import com.petrolpark.itemdecay.recipe.IDecayingItemCookingRecipe.DecayingItemBlastingRecipe;
-import com.petrolpark.itemdecay.recipe.IDecayingItemCookingRecipe.DecayingItemSmeltingRecipe;
-import com.petrolpark.itemdecay.recipe.IDecayingItemCookingRecipe.DecayingItemSmokingRecipe;
+import com.petrolpark.item.decay.recipe.IDecayingItemCookingRecipe.DecayingItemBlastingRecipe;
+import com.petrolpark.item.decay.recipe.IDecayingItemCookingRecipe.DecayingItemSmeltingRecipe;
+import com.petrolpark.item.decay.recipe.IDecayingItemCookingRecipe.DecayingItemSmokingRecipe;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;

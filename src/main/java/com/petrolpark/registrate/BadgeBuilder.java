@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import com.petrolpark.PetrolparkRegistries;
 import com.petrolpark.Petrolpark;
-import com.petrolpark.advancement.SimpleAdvancementTrigger;
+import com.petrolpark.PetrolparkRegistries;
 import com.petrolpark.badge.Badge;
 import com.petrolpark.badge.BadgeAdvancementRewards;
 import com.petrolpark.badge.BadgeItem;
 import com.petrolpark.compat.curios.CuriosSetup;
+import com.petrolpark.data.advancement.SimpleAdvancementTrigger;
 import com.tterrag.registrate.builders.AbstractBuilder;
 import com.tterrag.registrate.builders.BuilderCallback;
 import com.tterrag.registrate.util.entry.ItemEntry;

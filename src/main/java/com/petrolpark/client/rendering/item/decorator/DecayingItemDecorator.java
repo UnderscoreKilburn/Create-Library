@@ -1,7 +1,7 @@
 package com.petrolpark.client.rendering.item.decorator;
 
 import com.petrolpark.Petrolpark;
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;

@@ -3,14 +3,14 @@ package com.petrolpark;
 import static com.petrolpark.Petrolpark.REGISTRATE;
 
 import com.petrolpark.badge.Badge;
+import com.petrolpark.compat.create.dough.Dough;
+import com.petrolpark.compat.create.dough.DoughCut;
 import com.petrolpark.contamination.Contaminant;
 import com.petrolpark.data.loot.numberprovider.entity.LootEntityNumberProviderType;
 import com.petrolpark.data.loot.numberprovider.itemstack.LootItemStackNumberProviderType;
 import com.petrolpark.data.loot.numberprovider.team.LootTeamNumberProviderType;
 import com.petrolpark.data.reward.RewardType;
 import com.petrolpark.data.reward.generator.RewardGeneratorType;
-import com.petrolpark.dough.Dough;
-import com.petrolpark.dough.DoughCut;
 import com.petrolpark.recipe.ingredient.modifier.IngredientModifierType;
 import com.petrolpark.recipe.ingredient.randomizer.IngredientRandomizerType;
 import com.petrolpark.shop.Shop;
@@ -60,8 +60,9 @@ public class PetrolparkRegistries {
         public static final ResourceKey<Registry<ShopOfferGenerator>> SHOP_OFFER_GENERATOR = REGISTRATE.makeRegistry("shop_offer_generator", RegistryBuilder::new); // Data
 
         // Dough
-        public static final ResourceKey<Registry<Dough>> DOUGH = REGISTRATE.makeRegistry("dough", RegistryBuilder::new);
-        public static final ResourceKey<Registry<DoughCut>> DOUGH_CUT = REGISTRATE.makeRegistry("dough_cut", RegistryBuilder::new);
+        //TODO move to Create compat directory
+        public static final ResourceKey<Registry<Dough>> DOUGH = REGISTRATE.makeRegistry("dough", RegistryBuilder::new); // Data
+        public static final ResourceKey<Registry<DoughCut>> DOUGH_CUT = REGISTRATE.makeRegistry("dough_cut", RegistryBuilder::new); // Data
 
     };
 

@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
 import com.petrolpark.PetrolparkRegistries;
-import com.petrolpark.advancement.SimpleAdvancementTrigger;
+import com.petrolpark.data.advancement.SimpleAdvancementTrigger;
 import com.tterrag.registrate.util.entry.ItemEntry;
 
 import net.minecraft.Util;

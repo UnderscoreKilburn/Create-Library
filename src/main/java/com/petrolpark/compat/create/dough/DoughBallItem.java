@@ -1,7 +1,7 @@
-package com.petrolpark.dough;
+package com.petrolpark.compat.create.dough;
 
-import com.petrolpark.directionalitem.DirectionalTransportedItemStack;
-import com.petrolpark.directionalitem.IDirectionalOnBelt;
+import com.petrolpark.compat.create.item.directional.DirectionalTransportedItemStack;
+import com.petrolpark.compat.create.item.directional.IDirectionalOnBelt;
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 
 import net.minecraft.world.item.Item;

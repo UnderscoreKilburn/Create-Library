@@ -1,4 +1,4 @@
-package com.petrolpark.directionalitem;
+package com.petrolpark.compat.create.item.directional;
 
 import javax.annotation.Nullable;
 

@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.petrolpark.PetrolparkConfig;
 import com.petrolpark.contamination.ItemContamination;
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 import com.simibubi.create.content.equipment.sandPaper.SandPaperPolishingRecipe;
 
 import net.minecraft.world.item.ItemStack;

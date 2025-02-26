@@ -1,4 +1,4 @@
-package com.petrolpark.itemdecay;
+package com.petrolpark.item.decay;
 
 import com.jozufozu.flywheel.util.AnimationTickHolder;
 import com.mojang.blaze3d.vertex.PoseStack;

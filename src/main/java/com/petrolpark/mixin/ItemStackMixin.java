@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.petrolpark.contamination.IContamination;
 import com.petrolpark.contamination.IItemStackDuck;
 import com.petrolpark.contamination.ItemContamination;
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 import com.petrolpark.util.ItemHelper;
 
 import net.minecraft.world.item.ItemStack;

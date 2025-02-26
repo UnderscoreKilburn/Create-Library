@@ -1,6 +1,6 @@
 package com.petrolpark;
 
-import com.petrolpark.itemdecay.DecayingItemHandler.ClientDecayingItemHandler;
+import com.petrolpark.item.decay.DecayingItemHandler.ClientDecayingItemHandler;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;

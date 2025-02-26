@@ -1,10 +1,12 @@
-package com.petrolpark.dough;
+package com.petrolpark.compat.create.dough;
 
-import com.petrolpark.directionalitem.DirectionalTransportedItemStack;
+import com.petrolpark.RequiresCreate;
+import com.petrolpark.compat.create.item.directional.DirectionalTransportedItemStack;
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 
 import net.minecraft.world.item.ItemStack;
 
+@RequiresCreate
 public class DoughTransportedItemStack extends DirectionalTransportedItemStack {
 
     public final DoughBall doughBall;

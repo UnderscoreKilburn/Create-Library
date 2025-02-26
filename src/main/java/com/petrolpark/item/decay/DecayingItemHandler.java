@@ -1,4 +1,4 @@
-package com.petrolpark.itemdecay;
+package com.petrolpark.item.decay;
 
 import com.petrolpark.Petrolpark;
 
