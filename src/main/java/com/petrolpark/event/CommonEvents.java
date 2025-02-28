@@ -9,8 +9,8 @@ import com.petrolpark.badge.BadgesCapability;
 import com.petrolpark.command.ContaminateCommand;
 import com.petrolpark.contamination.Contaminant;
 import com.petrolpark.contamination.ItemContamination;
-import com.petrolpark.itemdecay.IDecayingItem;
-import com.petrolpark.itemdecay.DecayingItemHandler.ServerDecayingItemHandler;
+import com.petrolpark.item.decay.IDecayingItem;
+import com.petrolpark.item.decay.DecayingItemHandler.ServerDecayingItemHandler;
 import com.petrolpark.shop.customer.EntityCustomer;
 import com.petrolpark.team.SinglePlayerTeam;
 

@@ -1,4 +1,4 @@
-package com.petrolpark.dough;
+package com.petrolpark.compat.create.dough;
 
 public record DoughCut(int binaryMatrix, float area) {
 

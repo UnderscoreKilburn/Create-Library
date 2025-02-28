@@ -19,7 +19,7 @@ public enum CompatMods {
     CREATE_BISTRO("createbistro"),
     DESTROY,
     PETROLS_PARTS("petrolsparts"),
-    PQAULITY,
+    PQUALITY,
 
     // Others
     BIG_CANNONS("createbigcannons"),

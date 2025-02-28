@@ -1,4 +1,4 @@
-package com.petrolpark.dough;
+package com.petrolpark.compat.create.dough;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;

@@ -25,6 +25,8 @@
     "badge.petrolpark.translator": "精妙的语言学家",
     "badge.petrolpark.translator.description": "为 Petrolpark 的模组的本地化做出重大贡献",
 
+    "biome.petrolpark.unknown": "未知群系",
+
     "block.petrolpark.tube": "液压管道",
 
     "commands.petrolpark.contaminate.failed": "什么都没有发生。目标要么是手中空空如也，要么是无法添加污染",
@@ -33,13 +35,18 @@
     "commands.petrolpark.contaminate.success.multiple": "已将污染%s添加到实体%s上",
     "commands.petrolpark.contaminate.success.single": "已将污染%s添加到%s的物品上",
 
-    "contaminant.petrolpark.example": "污染示例",
-    "contaminant.petrolpark.example.absent": "无污染示例",
+    "contaminant.petrolpark.example_child": "示例（子）",
+    "contaminant.petrolpark.example_child.absent": "无示例（子）",
+    "contaminant.petrolpark.example_parent": "示例（父）",
+    "contaminant.petrolpark.example_parent.absent": "无示例（父）",
 
     "create.item_attributes.has_contaminant": "拥有污染：%s",
     "create.item_attributes.has_contaminant.inverted": "未拥有污染：%s",
 
     "curios.identifier.petrolpark_badge": "徽章",
+
+    "effect.petrolpark.numbness": "麻木",
+    "effect.petrolpark.numbness.description": "生物不会察觉到来自其他生物的伤害，也不会展开反击。",
 
     "item.petrolpark.badge.awarded": "于 %2$s 授予 %1$s",
     "item.petrolpark.badge.unknown": "这不是一个真正的徽章……",
@@ -55,7 +62,7 @@
     "petrolpark.recipe.item_decay": "物品变质",
     "petrolpark.recipe.manual_crafting": "手工制作",
 
-    "petrolpark.tube.connect_another": "放置另一个%s来连接它们",
+    "petrolpark.tube.connect_another": "放置另一个液压传动器来连接它们",
     "petrolpark.tube.title": "    搭建 %1$s %2$s",
     "petrolpark.tube.control.build": "    [%1$s] 搭建",
     "petrolpark.tube.control.grab_control_point": "    [拖动] 移动节点",

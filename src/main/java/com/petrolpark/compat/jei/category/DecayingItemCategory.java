@@ -1,7 +1,7 @@
 package com.petrolpark.compat.jei.category;
 
 import com.petrolpark.compat.jei.category.DecayingItemCategory.DecayingItemRecipe;
-import com.petrolpark.itemdecay.IDecayingItem;
+import com.petrolpark.item.decay.IDecayingItem;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;

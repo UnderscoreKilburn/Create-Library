@@ -133,7 +133,7 @@ public class PetrolparkTags {
         };
 
         public boolean matches(MenuType<?> menuType) {
-            return ForgeRegistries.MENU_TYPES.getHolder(menuType).orElseThrow().is(tag);
+            return ForgeRegistries.MENU_TYPES.getHolder(menuType).map(h -> h.is(tag)).orElse(false);
         };
     };
 

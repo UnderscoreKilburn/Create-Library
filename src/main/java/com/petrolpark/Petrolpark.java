@@ -16,7 +16,7 @@ import com.petrolpark.data.loot.PetrolparkLootNumberProviderTypes;
 import com.petrolpark.data.loot.PetrolparkLootTeamNumberProviders;
 import com.petrolpark.data.reward.RewardGeneratorTypes;
 import com.petrolpark.data.reward.RewardTypes;
-import com.petrolpark.itemdecay.DecayingItemHandler;
+import com.petrolpark.item.decay.DecayingItemHandler;
 import com.petrolpark.mobeffects.PetrolparkMobEffects;
 import com.petrolpark.network.PetrolparkMessages;
 import com.petrolpark.recipe.IPetrolparkRecipeTypes;
