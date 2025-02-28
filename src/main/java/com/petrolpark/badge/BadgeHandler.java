@@ -112,7 +112,7 @@ public class BadgeHandler {
     };
 
     private static boolean isEarlyBirdViable() {
-        return CompatMods.PQAULITY.isLoaded();
+        return CompatMods.PQUALITY.isLoaded();
     };
 
     private static String getFormattedUUID(ServerPlayer player) {
